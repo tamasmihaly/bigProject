@@ -1,8 +1,0 @@
-[0mPOST /post [32m200 [0m660.388 ms - 175[0m
-[0mGET /post [32m200 [0m90.602 ms - 515[0m
-[0mPOST /post [32m200 [0m30.456 ms - 93[0m
-[0mGET /post [32m200 [0m19.784 ms - 609[0m
-[0mDELETE /post/5acf558dd570820aec7080f9 [32m200 [0m82.707 ms - 168[0m
-[0mDELETE /post/5ad5ecc5e8183a254ca49540 [32m200 [0m2.029 ms - 168[0m
-[0mDELETE /post/5ad6669777988c1f588b9c72 [32m200 [0m2.431 ms - 175[0m
-[0mGET /post [32m200 [0m3.736 ms - 95[0m
