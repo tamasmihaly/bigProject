@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -16,20 +17,28 @@ export class AppComponent {
     email: '',
     password: ''
   };
-
+  currentUser: any;
   constructor(public http: HttpClient, public authService: AuthService) {
 
   }
 
 
 
-  login() {
-    this.authService.login(this.user)
+  getUser() {
+    this.http.get('http://localhost:8080/').subscribe(
+      data => {
+        return data;
+      });
+  }
+  async login() {
+    await this.authService.login(this.user);
+    this.currentUser = await this.getUser();
+    console.log(this.currentUser)
   }
   register() {
-    this.authService.register(this.user)
+    this.authService.register(this.user);
   }
   logout() {
-    this.authService.logout(this.user)
+    this.authService.logout();
   }
 }

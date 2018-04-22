@@ -1,10 +1,10 @@
 form
     .form-group
         label Blog title
-        input.form-control(name="content" type='text', placeholder='Title', [(ngModel)]="post.title")
+        input.form-control(name="content" type='text', placeholder='Title', [(ngModel)]="newPostContent.title")
     .form-group
         label Blog content
-        textarea#FormControlTextarea.form-control(name="textarea" rows='3',placeholder='Write something...', [(ngModel)]="post.content")
+        textarea#FormControlTextarea.form-control(name="textarea" rows='3',placeholder='Write something...', [(ngModel)]="newPostContent.blogpost")
     pre {{post | json}}
     button.btn.btn-primary((click)="newPost()") Post
     button.btn.btn-primary((click)="getPost()") Getpost

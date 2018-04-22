@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
 
   constructor(public http: HttpClient) { }
-  post: object = {
+  newPostContent: object = {
     title: '',
     blogpost: ''
   };
@@ -24,10 +24,14 @@ export class HomeComponent implements OnInit {
     }
   }
   newPost() {
-    const postData = this.post;
+    const postData = this.newPostContent;
     this.http.post('http://localhost:8080/post/newpost', postData).subscribe(
       data => {
-        this.writeResult(data);
+        if (data['error']) {
+          console.log(`Backend error: ${data['error']}`);
+        } else {
+          console.log(`No error. Result is: ${(data)}`);
+        }
       });
   }
   getPost() {

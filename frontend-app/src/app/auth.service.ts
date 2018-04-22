@@ -25,10 +25,17 @@ export class AuthService {
         this.writeResult(data);
       });
   }
-  logout(userdata) {
+  logout() {
     this.http.get('http://localhost:8080/logout').subscribe(
       data => {
         this.writeResult(data);
+      });
+  }
+  getUser() {
+    this.http.get('http://localhost:8080/').subscribe(
+      data => {
+        this.writeResult(data);
+        return data;
       });
   }
 
