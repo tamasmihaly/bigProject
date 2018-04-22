@@ -9,19 +9,19 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
     },
     blogposts: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Blogpost'
+        ref: 'Blogpost',
     }
 }, {
-    timestamps: true
-})
+    timestamps: true,
+});
 const options = {
-    maxAttemps: 100
-}
-userSchema.plugin(passportLocalMongoose, options); // ide lehet option-oket írnig User.plugin(passportLocalMongoose, options);
+    maxAttemps: 100,
+};
+// ide lehet option-oket írnig User.plugin(passportLocalMongoose, options);
+userSchema.plugin(passportLocalMongoose, options);
 
-
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('User', userSchema);

@@ -1,4 +1,71 @@
-h1 Welcome to {{ title }}
+//navbar
 
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand(href='#') Navbar
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNavDropdown.collapse.navbar-collapse
+    ul.navbar-nav 
+      li.nav-item(routerLinkActive="active")
+        a.nav-link(routerLink='/') Home
+          span.sr-only (current)
+      li.nav-item(routerLinkActive="active")
+        a.nav-link(routerLink='/contact') Contact
+      li.nav-item(routerLinkActive="active")
+       a.nav-link(routerLink="/profile") Profile
+  .mr
+    ul.navbar-nav
+      li.nav-item.active
+        a.nav-link(data-toggle='modal', data-target='#ModalCenterLogin') Login
+      li.nav-item.active
+        a.nav-link(data-toggle='modal', data-target='#ModalCenterRegister') Register
+      li.nav-item.active
+        a.nav-link((click)='logout()') Logout
+  
 
+// Modal login
+#ModalCenterLogin.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLongTitle.modal-title Login
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+       form
+        .form-group
+         label(for='exampleInputEmail1') Email address
+         input.form-control(name="username", type='email', placeholder='Enter username', [(ngModel)]="user.username")
+        .form-group
+         label(for='exampleInputEmail1') Password
+         input.form-control(name="password" type='password', placeholder='Enter password', [(ngModel)]="user.password")
 
+      .modal-footer
+        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button', (click)='login()') Login
+        button.btn.btn-success(type='button' data-dismiss='modal' data-toggle='modal' data-target='#ModalCenterRegister') Register
+// Modal register
+#ModalCenterRegister.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLongTitle.modal-title.text-center Registration
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+         form
+         .form-group
+           label(for='exampleInputEmail1') Username
+           input.form-control(type='email', placeholder='Enter email', [(ngModel)]="user.username")
+         .form-group
+           label(for='exampleInputEmail1') Email
+           input.form-control(name="usermail" type='email', placeholder='Enter password', [(ngModel)]="user.usermail")
+         .form-group
+           label(for='exampleInputEmail1') Password
+           input.form-control(name="password" type='email', placeholder='Enter password', [(ngModel)]="user.password")
+           pre {{user | json}}
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+        button.btn.btn-primary(type='button', (click)='register()') Save changes
+.container
+  router-outlet

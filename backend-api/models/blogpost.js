@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const blogpostSchema = mongoose.Schema({
     title: {
         type: String,
-        required: true,
+        required: true
     },
     blogpost: {
         type: String,
-        content: String
+        required: true
     }
 }, {
     timestamps: true
