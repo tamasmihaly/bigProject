@@ -1,0 +1,44 @@
+p.medium-text {
+  font-size: 20px;
+}
+
+.initial {
+  font-size: 100px;
+}
+
+.small-initial {
+  font-size: 70px;
+}
+
+.header-big-text {
+  font-size: 70px;
+}
+
+.header-small-text {
+  font-size: 40px;
+}
+
+.text-red {
+  color: #de3641;
+}
+
+.text-brown {
+  color: #A86454;
+}
+
+.text-green {
+  color: #43853D
+}
+
+.text-mongogreen {
+  color: #7FC857
+}
+
+a {
+  text-decoration: none;
+  color: #007bffa6;
+}
+
+a:hover {
+  color: black;
+}

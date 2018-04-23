@@ -10,11 +10,15 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthService } from './auth.service';
+import { KnowledgeComponent } from './knowledge/knowledge.component';
+import { ApiComponent } from './api/api.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'api', component: ApiComponent },
+  { path: 'knowledge', component: KnowledgeComponent },
 ];
 
 
@@ -23,7 +27,9 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     ContactComponent,
-    ProfileComponent
+    ProfileComponent,
+    KnowledgeComponent,
+    ApiComponent
   ],
   imports: [
     BrowserModule,

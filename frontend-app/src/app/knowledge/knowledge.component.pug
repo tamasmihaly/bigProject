@@ -1,0 +1,83 @@
+h2.header-big-text.col-sm-12 
+  span.text-primary.initial T
+  |udás
+  span.text-primary.initial B
+  |ázis
+.container.col-sm-10.offset-sm-1
+  a(href="https://nodejs.org/en/")
+    h3.header-small-text 
+      span.small-initial.text-green n
+      | ode.JS
+  p.medium-text A Node.js egy szoftverrendszer, melyet skálázható internetes alkalmazások, mégpedig webszerverek készítésére hoztak létre. A programok JavaScript-ben írhatók, eseményalapú, aszinkron I/O-val a túlterhelés minimalizálására és a skálázhatóság maximalizálására.
+  a(href='https://expressjs.com/')
+    h3.header-small-text 
+      span.small-initial.text-red E
+      | xpress
+  p.medium-text Express.js vagy egyszerűen Express egy webes keretrendszer NodeJS-hez. 
+    | Az Express open-source projekt, MIT licensz alatt áll. Webes apik készítésére használható.
+    |A következő modulokat használtuk az Express-es szerverünknél:
+  ul
+    li
+      h4 CookieParser és BodyParser
+      p.medium-text A CookieParser a cookie információját alakítja át, amíg A BodyParser a bejövő kérés body-ját.
+    li
+      h4 Fs, Rfs  modul
+      p.medium-text A FileSytem modulok a könyvtárak, fájlok létrehozásánál szükséges, amely a naplózásnál volt szükséges.
+    li
+      h4 Mongoose
+      p.medium-text 
+        | A MongoDB egyszerűbb kezeléséhez használtuk a Mongoose-t, a Mongoose végezte el az adatbázishoz való kapcsolódást.
+    li
+      h4 Morgan
+      p.medium-text A Morgan a HTTP kéréseket naplózza.
+    li
+      h4 Helmet
+      p.medium-text A Helmet egy biztonsági szolgáltatás az Express-hez.
+    li
+      h4 Http modulok
+      p.medium-text A Http modulaz adatok HTTP kiszolgálón történő utaztatásához szükséges. A modul létrehoz egy http szervert, amely
+        | figyeli a szerver portjait, és válaszol az klienseknek.
+    li
+      h4 Passport és PassportLocalMongoose
+      p.medium-text  A Passport az autentikációt könnyíti meg számos biztonsági elemekkel.
+    li
+      h4 Path modulok
+      p.medium-text A Path modul az fájl útvonalak egyszerűbb kezelését teszi lehetővé.
+  a(href='https://mongodb.org/')
+    h3.header-small-text 
+      span.small-initial.text-mongogreen M
+      |ongoDB
+  p.medium-text 
+    |A MongoDB egy nyílt forráskódú dokumentumorientált adatbázis szoftver, amelyet a 10gen fejleszt.
+    | A NoSQL adatbázisszerverek közé tartozik.
+    | A dokumentumokat JSON-szerű formátumban tárolja. A MongoDB-t olyan nagyobb felhasználók is használják, 
+    | A legnépszerűbb NoSQL adatbázis szoftver.
+  a(href='https://angular.io/') 
+    h3.header-small-text 
+      span.small-initial.text-red A
+      | ngular
+  p.medium-text Az Angular egy TypeScript alapú, open-source, webes applikációk fejlesztésére alkalmazott keretrenszer.
+  ul
+    li
+      h4 BrowserModule
+      p.medium-text A Browser Module felelős érte, hogy a böngésző alapú alkalmazás megfelelően állítsa be a különböző direktívákat és szolgáltatásokat.
+    li
+      h4 FormsModule
+      p.medium-text Ahhoz szükséges, hogy az NgModult tudjuk az űrlapok esetén is használni.
+    li
+      h4 NgModule
+      p.medium-text Az NgModule konfigurálja az injektort és a fordítót, továbbá segít rendszerezni a dolgokat.
+    li
+      h4 Http, HttpModule, HttpClientModule
+      p.medium-text A Http lekérdezéseket végrehajtó modulok.
+    li
+      h4 Service
+      p.medium-text A Szervízeket akkor érdemes használni, ha valamilyen kódrészletet többször is felhasználnánk, ilyenkor írunk rá egy service-t és azt hívjuk meg.
+  a(href='https://pugjs.org/')
+    h3.header-small-text 
+      span.small-initial.text-brown P
+      | UG
+  p.medium-text A Pug a NodeJs-hez használható template nyelv, s mint ilyen lehetővé teszi statikus sablonfájlok használatát webes
+    | alkalmazásokban. Legfutáskor a kérésnek megfelelően a temlpate engine a sablonfájl változóiba értékeket helyettesítve
+    | átalakítja a sablont, majd a kliensnek visszaküldi a megfelelő Html stringet. A PUG szintaktitkája a html tag-eket
+    | használja, zárótag-ek nélkül, mindössze a tagolással struktúrálva a kódot.

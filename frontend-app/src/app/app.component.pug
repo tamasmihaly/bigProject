@@ -1,18 +1,22 @@
 //navbar
 
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  a.navbar-brand(href='#') Navbar
+  a.navbar-brand.text-capitalize.a-bordered(href='#') blog
   button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarNavDropdown.collapse.navbar-collapse
     ul.navbar-nav 
       li.nav-item(routerLinkActive="active")
-        a.nav-link(routerLink='/') Home
+        a.nav-link(routerLink='/') Főoldal
           span.sr-only (current)
       li.nav-item(routerLinkActive="active")
-        a.nav-link(routerLink='/contact') Contact
+        a.nav-link(routerLink='/contact') Kontakt
       li.nav-item(routerLinkActive="active")
-       a.nav-link(routerLink="/profile") Profile
+       a.nav-link(routerLink="/profile") Profil
+      li.nav-item(routerLinkActive="active")
+       a.nav-link(routerLink="/knowledge") Tudásbázis
+      li.nav-item(routerLinkActive="active")
+       a.nav-link(routerLink="/api") Api
   .mr
     ul.navbar-nav
       li.nav-item.active
@@ -21,7 +25,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         a.nav-link(data-toggle='modal', data-target='#ModalCenterRegister') Register
       li.nav-item.active
         a.nav-link((click)='logout()') Logout
-      p {{currentUser}}
   
 
 // Modal login
@@ -68,5 +71,4 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .modal-footer
         button.btn.btn-secondary(type='button' data-dismiss='modal') Close
         button.btn.btn-primary(type='button', (click)='register()') Save changes
-.container
-  router-outlet
+router-outlet
