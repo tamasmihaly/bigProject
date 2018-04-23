@@ -8,10 +8,6 @@ const blogpostSchema = mongoose.Schema({
     blogpost: {
         type: String,
         required: true,
-    },
-    creatorId: {
-        type: String,
-        required: true,
     }
 }, {
     timestamps: true,

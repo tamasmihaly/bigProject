@@ -37,7 +37,7 @@ mongoose.connect(db.uri, db.options, () => {
  * napi szintent
  */
 fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
-// napi logolás az access log fileba skippelés így 
+// napi logolás az access log fileba skippelés így
 let accessLogStream = rfs('access.log', {
     interval: '1d', // rotate daily
     path: logDirectory

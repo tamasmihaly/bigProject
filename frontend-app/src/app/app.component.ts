@@ -17,28 +17,58 @@ export class AppComponent {
     email: '',
     password: ''
   };
-  currentUser: any;
-  constructor(public http: HttpClient, public authService: AuthService) {
+  newUser: object = {
+    username: '',
+    email: '',
+    password: ''
+  }
+  loggedIn: boolean;
+  public currentUser: any;
 
+  constructor(public http: HttpClient, public authService: AuthService) {
   }
 
-
+  userCheck(data) {
+    if (data['username'] && data['password']) {
+      return true;
+    }
+    return false;
+  }
 
   getUser() {
-    this.http.get('http://localhost:8080/').subscribe(
+    this.authService.getUser();
+  }
+  login() {
+    const userdata = this.user;
+    if (!this.userCheck(userdata)) { return console.log('hiányzó adatok') }
+    this.http.post('http://localhost:8080/login', userdata).subscribe(
       data => {
-        return data;
+        this.loggedIn = true;
+        this.currentUser = data['user'];
       });
   }
-  async login() {
-    await this.authService.login(this.user);
-    this.currentUser = await this.getUser();
-    console.log(this.currentUser)
-  }
   register() {
-    this.authService.register(this.user);
+    if (!this.userCheck(this.newUser) && !this.newUser['email']) {
+      this.newUser = {
+        username: '',
+        email: '',
+        password: ''
+      };
+      return console.log('hiányzó adatok');
+    }
+    this.authService.register(this.newUser);
+    this.newUser = {
+      username: '',
+      email: '',
+      password: ''
+    };
   }
   logout() {
-    this.authService.logout();
+    const userdata = this.user;
+    this.http.post('http://localhost:8080/login', userdata).subscribe(
+      data => {
+        this.loggedIn = false;
+      });
   }
+
 }

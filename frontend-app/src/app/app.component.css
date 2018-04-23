@@ -3,3 +3,8 @@ a.a-bordered {
   border-radius: 5px;
   padding: 5px;
 }
+
+nav li>a:hover {
+  cursor: pointer;
+  color: #007bff;
+}

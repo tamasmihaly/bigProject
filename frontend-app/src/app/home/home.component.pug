@@ -1,13 +1,43 @@
-form
-    .form-group
-        label Blog title
-        input.form-control(name="content" type='text', placeholder='Title', [(ngModel)]="newPostContent.title")
-    .form-group
-        label Blog content
-        textarea#FormControlTextarea.form-control(name="textarea" rows='3',placeholder='Write something...', [(ngModel)]="newPostContent.blogpost")
-    pre {{post | json}}
-    button.btn.btn-primary((click)="newPost()") Post
-    button.btn.btn-primary((click)="getPost()") Getpost
+.container
+    form.form-bordered
+        .form-group
+            label Blogbejegyzés címe
+            input.form-control(name="content" type='text', placeholder='Cím', [(ngModel)]="newPostContent.title")
+        .form-group
+            label Tartalom
+            textarea#FormControlTextarea.form-control(name="textarea" rows='3',placeholder='Írj valamit...', [(ngModel)]="newPostContent.blogpost")
+        pre {{post | json}}
+        button.btn.btn-primary.btn-block((click)="newPost()") Post
+
+    .blogposts.col-10.offset-1(*ngFor='let post of blogposts')
+        .d-flex.justify-content-between
+            h4 {{post.title}}
+            p {{post.createdAt | date:'yyyy-MM-dd HH:mm a z':'+0200'}}
+        p {{post.blogpost}}
+        .btn-group
+            button.btn.btn-outline-danger((click)='deletePost(post._id)') Post törlése
+            button.btn.btn-outline-warning(data-toggle='modal', data-target='#ModalCenterUpdate', (click)='setUpdateId(post._id)') Post modósítás
+        hr
 
 
-.blog-div(*ngFor='let post of blogposts') {{post.blogpost}}
+// Modal login
+#ModalCenterUpdate.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLongTitle.modal-title Login
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+       form
+        .form-group
+         label(for='formusername') Cím
+         input#formusermail.form-control(name="posttitle", type='email', placeholder='cím', [(ngModel)]="updatePostContent.title")
+        .form-group
+         label(for='userpass') Blogbejegyzés
+         textarea.form-control(name="textareaupdatepost", cols="30", rows="10", placeholder='jelszó', [(ngModel)]="updatePostContent.blogpost")
+
+      .modal-footer
+        .btn-group
+            button.btn.btn-outline-secondary(type='button', data-dismiss='modal') Close
+            button.btn.btn-outline-danger(type='button',data-dismiss='modal', (click)='updatePost()') Update post

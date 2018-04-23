@@ -35,8 +35,8 @@ p.medium-text {
 }
 
 a {
-  text-decoration: none;
   color: #007bffa6;
+  text-decoration: none;
 }
 
 a:hover {

@@ -22,9 +22,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       li.nav-item.active
         a.nav-link(data-toggle='modal', data-target='#ModalCenterLogin') Login
       li.nav-item.active
-        a.nav-link(data-toggle='modal', data-target='#ModalCenterRegister') Register
+        a.nav-link(data-toggle='modal', data-target='#ModalCenterRegister') Regisztráció
       li.nav-item.active
-        a.nav-link((click)='logout()') Logout
+        a.nav-link((click)='logout()') Kijelentkezés
   
 
 // Modal login
@@ -38,15 +38,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .modal-body
        form
         .form-group
-         label(for='exampleInputEmail1') Email address
-         input.form-control(name="username", type='email', placeholder='Enter username', [(ngModel)]="user.username")
+         label(for='username') Email cím
+         input#usermail.form-control(name="username", type='email', placeholder='felhasználónév', [(ngModel)]="user.username")
         .form-group
-         label(for='exampleInputEmail1') Password
-         input.form-control(name="password" type='password', placeholder='Enter password', [(ngModel)]="user.password")
+         label(for='userpass') Jelszó
+         input#userpass.form-control(name="password" type='password', placeholder='jelszó', [(ngModel)]="user.password")
 
       .modal-footer
         button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-        button.btn.btn-primary(type='button', (click)='login()') Login
+        button.btn.btn-primary(type='button',data-dismiss='modal', (click)='login()') Login
         button.btn.btn-success(type='button' data-dismiss='modal' data-toggle='modal' data-target='#ModalCenterRegister') Register
 // Modal register
 #ModalCenterRegister.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
@@ -59,16 +59,20 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .modal-body
          form
          .form-group
-           label(for='exampleInputEmail1') Username
-           input.form-control(type='email', placeholder='Enter email', [(ngModel)]="user.username")
+           label(for='regUsername') Username
+           input#regUsername.form-control(type='text', placeholder='felhasználónév', [(ngModel)]="newUser.username")
          .form-group
-           label(for='exampleInputEmail1') Email
-           input.form-control(name="usermail" type='email', placeholder='Enter password', [(ngModel)]="user.usermail")
+           label(for='#regUsermail') Email
+           input#regUsermail.form-control(name="usermail" type='email', placeholder='email cím', [(ngModel)]="newUser.email")
          .form-group
-           label(for='exampleInputEmail1') Password
-           input.form-control(name="password" type='email', placeholder='Enter password', [(ngModel)]="user.password")
-           pre {{user | json}}
+           label(for='#reguserpass') Password
+           input#reguserpass.form-control(name="password" type='text', placeholder='jelszó', [(ngModel)]="newUser.password")
       .modal-footer
         button.btn.btn-secondary(type='button' data-dismiss='modal') Close
-        button.btn.btn-primary(type='button', (click)='register()') Save changes
-router-outlet
+        button.btn.btn-primary(type='button', data-dismiss='modal', (click)='register()') Save changes
+.router-div(*ngIf='this.loggedIn')
+  router-outlet
+.container
+  .logged-out-div(*ngIf='!this.loggedIn')
+    br
+    h1 Kijelentkezve

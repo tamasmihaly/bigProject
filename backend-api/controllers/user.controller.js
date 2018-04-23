@@ -23,7 +23,8 @@ module.exports = {
     },
     login: (req, res) => {
         res.json({
-            success: "Belépve!"
+            success: "Belépve!",
+            user: req.user,
         });
     },
     logout: (req, res) => {

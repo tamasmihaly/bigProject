@@ -34,8 +34,7 @@ export class AuthService {
   getUser() {
     this.http.get('http://localhost:8080/').subscribe(
       data => {
-        this.writeResult(data);
-        return data;
+        console.log(data)
       });
   }
 
